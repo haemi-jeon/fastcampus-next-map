@@ -7,7 +7,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className='layout__div'>
+    <div className='layout'>
       <Navbar />
       {children}
     </div>
