@@ -31,24 +31,26 @@ export default function Pagination({ total, page }: Pagination) {
                 query: { page: parseInt(page) - 1 },
               }}
             >
-              <span className='px-3 py-2 rounded border shadow-sm bg-white'>
+              <span className={`px-3 py-2 rounded border shadow-sm bg-white`}>
                 이전
               </span>
             </Link>
           )}
           <Link href={{ pathname: '/stores', query: { page: parseInt(page) } }}>
-            <span className='px-3 py-2 rounded border shadow-sm text-blue-600'>
+            <span
+              className={`px-3 py-2 rounded border shadow-sm bg-white text-blue-600`}
+            >
               {page}
             </span>
           </Link>
-          {parseInt(page) < total && (
+          {total > parseInt(page) && (
             <Link
               href={{
                 pathname: '/stores',
                 query: { page: parseInt(page) + 1 },
               }}
             >
-              <span className='px-3 py-2 rounded border shadow-sm bg-white'>
+              <span className={`px-3 py-2 rounded border shadow-sm bg-white`}>
                 다음
               </span>
             </Link>
