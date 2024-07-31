@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useInfiniteQuery } from 'react-query';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import Loader from '@/components/Loader';
+import SearchFilter from '@/components/SearchFilter';
 
 export default function StoreListPage() {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -65,6 +66,8 @@ export default function StoreListPage() {
 
   return (
     <div className='px-4 md:max-w-5xl mx-auto py-8'>
+      {/* search filter */}
+      <SearchFilter />
       <ul className='divide-y divide-gray-100' role='list'>
         {isLoading ? (
           <Loading />
