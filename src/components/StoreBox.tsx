@@ -11,6 +11,7 @@ import { StoreType } from '@/interface';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { currentStoreState } from '@/atom';
+import Like from './Like';
 
 interface StoreBoxProps {
   store: StoreType | null;
@@ -47,9 +48,12 @@ export default function StoreBox() {
                 <AiOutlineClose />
               </button>
             </div>
-            <div className='mt-4 flex gap-2 items-center'>
-              <HiOutlineMapPin />
-              {store?.address}
+            <div className='flex justify-between'>
+              <div className='mt-4 flex gap-2 items-center col-span-3'>
+                <HiOutlineMapPin />
+                {store?.address || '주소가 없습니다.'}
+              </div>
+              <Like storeId={store.id} />
             </div>
             <div className='mt-2 flex gap-2 items-center'>
               <AiOutlinePhone />
@@ -57,7 +61,7 @@ export default function StoreBox() {
             </div>
             <div className='mt-2 flex gap-2 items-center'>
               <AiOutlineInfoCircle />
-              {store?.foodCertifyName}
+              {store?.storeType}
             </div>
             <div className='mt-2 flex gap-2 items-center'>
               <AiOutlineCheck />

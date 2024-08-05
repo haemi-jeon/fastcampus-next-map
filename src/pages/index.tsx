@@ -1,7 +1,9 @@
 import Map from '@/components/Map';
 import Markers from '@/components/Markers';
+
 import StoreBox from '@/components/StoreBox';
 import { StoreType } from '@/interface';
+
 import axios from 'axios';
 
 export default function Home({ stores }: { stores: StoreType[] }) {
