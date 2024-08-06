@@ -18,6 +18,12 @@ export interface LikeInterface {
   store?: StoreType;
 }
 
+export interface LikeApiResponse {
+  data: LikeInterface[];
+  totalPage?: number;
+  page?: number;
+}
+
 export interface StoreApiResponse {
   data: StoreType[];
   totalCount?: number;
