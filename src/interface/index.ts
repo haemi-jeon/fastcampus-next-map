@@ -24,17 +24,40 @@ export interface LikeApiResponse {
   page?: number;
 }
 
+export interface CommentInterface {
+  id: number;
+  storeId: number;
+  userId: number;
+  store?: StoreType;
+  body: string;
+  user?: UserType;
+  createAt: Date;
+}
+
+interface UserType {
+  id: number;
+  email: string;
+  name?: string | null;
+  image?: string | null;
+}
+
+export interface CommentApiResponse {
+  data: CommentInterface[];
+  totalPage?: number;
+  page?: number;
+}
+
 export interface StoreApiResponse {
   data: StoreType[];
-  totalCount?: number;
   totalPage?: number;
+  totalCount?: number;
   page?: number;
 }
 
 export interface LocationType {
   lat?: string | null;
   lng?: string | null;
-  zoom: number;
+  zoom?: number;
 }
 
 export interface SearchType {
