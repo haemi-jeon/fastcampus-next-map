@@ -28,13 +28,13 @@ export default function CommentForm({ storeId, refetch }: CommentFormProps) {
           resetField('body');
           refetch?.();
         } else {
-          toast.error('다시 시도해주세요.');
+          toast.error('다시 시도해주세요');
         }
       })}
       className='flex flex-col space-y-2'
     >
       {errors?.body?.type === 'required' && (
-        <div className='text-sm text-red-600'>필수 입력사항입니다.</div>
+        <div className='text-xs text-red-600'>필수 입력사항입니다.</div>
       )}
       <textarea
         rows={3}

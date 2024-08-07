@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { CommentApiResponse } from '@/interface';
 import CommentList from './CommentList';
+import Pagination from '../Pagination';
 
 interface CommentProps {
   storeId: number;
@@ -17,13 +18,14 @@ export default function Comments({ storeId }: CommentProps) {
 
   const fetchComments = async () => {
     const { data } = await axios(
-      `/api/comments?${storeId}&limit=10&page=${page}`
+      `/api/comments?storeId=${storeId}&limit=5&page=${page}`
     );
 
     return data as CommentApiResponse;
   };
+
   const { data: comments, refetch } = useQuery(
-    `comments-${storeId}`,
+    `comments-${storeId}-${page}`,
     fetchComments
   );
 
@@ -33,6 +35,11 @@ export default function Comments({ storeId }: CommentProps) {
         <CommentForm storeId={storeId} refetch={refetch} />
       )}
       <CommentList comments={comments} />
+      <Pagination
+        total={comments?.totalPage}
+        page={page}
+        pathname={`/stores/${storeId}`}
+      />
     </div>
   );
 }
