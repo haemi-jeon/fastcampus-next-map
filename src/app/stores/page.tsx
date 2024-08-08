@@ -1,16 +1,16 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+'use client';
+
+import React, { useCallback, useEffect, useRef } from 'react';
+import axios from 'axios';
+import { useInfiniteQuery } from 'react-query';
+import { useRecoilValue } from 'recoil';
 
 import { StoreType } from '@/interface';
+import { searchState } from '@/atom';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
-
-import { useInfiniteQuery } from 'react-query';
-import axios from 'axios';
-
 import Loading from '@/components/Loading';
 import Loader from '@/components/Loader';
 import SearchFilter from '@/components/SearchFilter';
-import { useRecoilValue } from 'recoil';
-import { searchState } from '@/atom';
 import StoreList from '@/components/StoreList';
 
 export default function StoreListPage() {

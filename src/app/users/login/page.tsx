@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+'use client';
 
+import { useEffect } from 'react';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { SiNaver } from 'react-icons/si';
 import { RiKakaoTalkFill } from 'react-icons/ri';
-
-import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 
 export default function LoginPage() {
   const { status, data: session } = useSession();
@@ -16,8 +16,6 @@ export default function LoginPage() {
       router.replace('/');
     }
   }, [router, status]);
-
-  console.log(session);
 
   return (
     <div className='flex flex-col justify-center px-6 lg:px-8 h-[60vh]'>
